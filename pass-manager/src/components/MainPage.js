@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Row, Col, Table, Input, Icon } from 'react-materialize'
+import { Row, Col, Input, Icon, Button } from 'react-materialize'
+import { Link } from 'react-router-dom'
 
 import { getPasswords } from '../actions'
 import DataList from './DataList'
@@ -32,6 +33,13 @@ class MainPage extends React.Component {
         </Row>
         <Row>
           <DataList />
+        </Row>
+        <Row>
+          <Col offset="s2">
+            <Link to="/create">
+              <Button waves='light'>Create New</Button>
+            </Link>
+          </Col>
         </Row>
       </div>
     )

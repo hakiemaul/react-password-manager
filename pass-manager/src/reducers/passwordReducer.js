@@ -16,11 +16,21 @@ export default (state = initialState, action) => {
     case 'CHECK_INPUT':
       let input = action.payload
       let valid = {...state.validation}
-      if (/[A-Z]/.test(input)) valid.capital = true
-      if (/[a-z]/.test(input)) valid.lowercase = true
-      if (/[!@#\$%\^\&*\)\(+=._-]/.test(input)) valid.special = true
-      if (/[0-9]/.test(input)) valid.numerical = true
-      if (/[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}/.test(input)) valid.minlength = true
+      if (/[A-Z]/.test(input)) {
+        valid.capital = true
+      } else valid.capital = false
+      if (/[a-z]/.test(input)) {
+        valid.lowercase = true
+      } else valid.lowercase = false
+      if (/[!@#\$%\^\&*\)\(+=._-]/.test(input)) {
+        valid.special = true
+      } else valid.special = false
+      if (/[0-9]/.test(input)) {
+        valid.numerical = true
+      } else valid.numerical = false
+      if (/[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{6,}/.test(input)) {
+        valid.minlength = true
+      } else valid.minlength = false
       return { ...state, validation: valid }
     default:
 
